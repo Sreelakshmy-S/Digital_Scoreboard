@@ -1,3 +1,12 @@
+#include "stm32f4xx.h" // Include the appropriate header for your microcontroller
+#include "usart.h" // Include your USART header for sending strings
+
+// Function to initialize the USART (you might need to implement this based on your setup)
+void USART1_Init(void);
+
+// Function to send a string via USART (you might need to implement this based on your setup)
+void USART1_SendString(char* str);
+
 // Bus Fault Handler
 void BusFault_Handler(void) {
     // Log the fault or send a message
@@ -9,7 +18,7 @@ void BusFault_Handler(void) {
     }
 }
 
-//Memory Management Fault Handle
+// Memory Management Fault Handler
 void MemManage_Handler(void) {
     // Log the fault or send a message
     USART1_SendString("Memory Management Fault detected!\r\n");
@@ -20,7 +29,7 @@ void MemManage_Handler(void) {
     }
 }
 
-//Hard Fault Handler
+// Hard Fault Handler
 void HardFault_Handler(void) {
     // Log the fault or send a message
     USART1_SendString("Hard Fault detected!\r\n");
@@ -31,7 +40,7 @@ void HardFault_Handler(void) {
     }
 }
 
-//Default Exception Handler
+// Default Exception Handler
 void Default_Handler(void) {
     // Log the fault or send a message
     USART1_SendString("Unknown Exception detected!\r\n");
